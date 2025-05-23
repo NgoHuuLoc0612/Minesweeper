@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="header">
+            <div class="mines-counter">
+                <span id="mines-count">0</span>
+            </div>
+            <div class="game-status">
+                <button id="reset-button">😊</button>
+            </div>
+            <div class="timer">
+                <span id="timer">0</span>
+            </div>
+        </div>
+        <div class="difficulty">
+            <button class="difficulty-btn active" data-difficulty="beginner">Beginner</button>
+            <button class="difficulty-btn" data-difficulty="intermediate">Intermediate</button>
+            <button class="difficulty-btn" data-difficulty="expert">Expert</button>
+        </div>
+        <div id="game-board"></div>
+    </div>
+    <div class="instructions">
+        <h2>How to Play</h2>
+        <ul>
+            <li>Left-click to reveal a cell</li>
+            <li>Right-click to flag a suspected mine</li>
+            <li>Double-click a revealed number to reveal surrounding cells (if enough flags are placed)</li>
+        </ul>
+    </div>
+    <script src="js/game.js"></script>
+</body>
+</html>

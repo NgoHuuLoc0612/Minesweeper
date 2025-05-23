@@ -1,0 +1,214 @@
+/* Main styling */
+:root {
+  --cell-size: 30px;
+  --border-color: #7b7b7b;
+  --bg-color: #c0c0c0;
+  --uncovered-bg: #d1d1d1;
+  --header-height: 50px;
+  --cell-text-1: blue;
+  --cell-text-2: green;
+  --cell-text-3: red;
+  --cell-text-4: darkblue;
+  --cell-text-5: darkred;
+  --cell-text-6: teal;
+  --cell-text-7: black;
+  --cell-text-8: gray;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.game-container {
+  background-color: var(--bg-color);
+  border: 3px solid #7b7b7b;
+  border-right-color: #ffffff;
+  border-bottom-color: #ffffff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 4px;
+}
+
+.header {
+  height: var(--header-height);
+  background-color: var(--bg-color);
+  border: 3px solid;
+  border-color: #ffffff #7b7b7b #7b7b7b #ffffff;
+  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.mines-counter, .timer {
+  background-color: black;
+  color: red;
+  font-family: 'Digital', monospace;
+  font-size: 24px;
+  padding: 5px 10px;
+  width: 70px;
+  text-align: center;
+  border: 2px solid;
+  border-color: #7b7b7b #ffffff #ffffff #7b7b7b;
+}
+
+#reset-button {
+  font-size: 24px;
+  background-color: var(--bg-color);
+  border: 3px solid;
+  border-color: #ffffff #7b7b7b #7b7b7b #ffffff;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#reset-button:active {
+  border-color: #7b7b7b #ffffff #ffffff #7b7b7b;
+}
+
+.difficulty {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.difficulty-btn {
+  padding: 8px 12px;
+  margin: 0 5px;
+  background-color: var(--bg-color);
+  border: 2px solid;
+  border-color: #ffffff #7b7b7b #7b7b7b #ffffff;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.difficulty-btn:active, .difficulty-btn.active {
+  border-color: #7b7b7b #ffffff #ffffff #7b7b7b;
+  background-color: #a0a0a0;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(9, var(--cell-size));
+  margin-top: 10px;
+}
+
+.cell {
+  width: var(--cell-size);
+  height: var(--cell-size);
+  border: 2px solid;
+  border-color: #ffffff #7b7b7b #7b7b7b #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  user-select: none;
+  cursor: pointer;
+}
+
+.cell.revealed {
+  border: 1px solid var(--border-color);
+  background-color: var(--uncovered-bg);
+}
+
+.cell.flagged {
+  background-image: url('../assets/flag.svg');
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cell.mine {
+  background-image: url('../assets/mine.svg');
+  background-size: 70%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cell.exploded {
+  background-color: red;
+  background-image: url('../assets/explosion.svg');
+  background-size: 90%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.cell[data-value="1"] { color: var(--cell-text-1); }
+.cell[data-value="2"] { color: var(--cell-text-2); }
+.cell[data-value="3"] { color: var(--cell-text-3); }
+.cell[data-value="4"] { color: var(--cell-text-4); }
+.cell[data-value="5"] { color: var(--cell-text-5); }
+.cell[data-value="6"] { color: var(--cell-text-6); }
+.cell[data-value="7"] { color: var(--cell-text-7); }
+.cell[data-value="8"] { color: var(--cell-text-8); }
+
+.instructions {
+  margin-top: 30px;
+  background-color: #f9f9f9;
+  padding: 15px;
+  border-radius: 5px;
+  max-width: 500px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.instructions h2 {
+  margin-bottom: 10px;
+  color: #333;
+}
+
+.instructions ul {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
+.instructions li {
+  margin-bottom: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  :root {
+    --cell-size: 25px;
+  }
+  
+  .game-container {
+    padding: 5px;
+  }
+  
+  .header {
+    height: 40px;
+  }
+  
+  .mines-counter, .timer {
+    font-size: 18px;
+    width: 60px;
+  }
+  
+  #reset-button {
+    font-size: 20px;
+    width: 35px;
+    height: 35px;
+  }
+  
+  .difficulty-btn {
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+}
