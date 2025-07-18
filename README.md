@@ -35,7 +35,7 @@ This project recreates the classic Minesweeper puzzle game for the browser. The 
 
 ## Customization
 
-- To change grid size or mine count, adjust parameters in `script.js`.
+- To change grid size or mine count, adjust parameters in `game.js`.
 - Update styles in `style.css` to personalize the game’s appearance.
 
 ## License
