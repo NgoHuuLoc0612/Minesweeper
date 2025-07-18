@@ -24,13 +24,13 @@ This project recreates the classic Minesweeper puzzle game for the browser. The 
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ngou1200/Minesweeper.git
+   git clone https://github.com/NgoHuuLoc0612/Minesweeper.git
    ```
 2. Change directory:
    ```bash
    cd Minesweeper
    ```
-3. Open `index.html` in your browser.
+3. Use Live Server or host to use.
 
 
 ## Customization
