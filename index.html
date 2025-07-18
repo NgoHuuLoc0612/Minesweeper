@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minesweeper</title>
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="game-container">
@@ -19,21 +20,48 @@
                 <span id="timer">0</span>
             </div>
         </div>
-        <div class="difficulty">
-            <button class="difficulty-btn active" data-difficulty="beginner">Beginner</button>
-            <button class="difficulty-btn" data-difficulty="intermediate">Intermediate</button>
-            <button class="difficulty-btn" data-difficulty="expert">Expert</button>
+        
+        <div class="progress-container">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <span class="progress-text" id="progress-text">0%</span>
         </div>
+        
+        <div class="controls">
+            <div class="difficulty">
+                <button class="difficulty-btn active" data-difficulty="beginner">Beginner</button>
+                <button class="difficulty-btn" data-difficulty="intermediate">Intermediate</button>
+                <button class="difficulty-btn" data-difficulty="expert">Expert</button>
+            </div>
+            <div class="game-options">
+                <button id="dark-mode-toggle" class="option-btn">🌙</button>
+                <button id="undo-btn" class="option-btn" disabled>↶</button>
+            </div>
+        </div>
+        
         <div id="game-board"></div>
+        
+        <div class="keyboard-hint">
+            <span>Use arrow keys to navigate, Space to flag, Enter to reveal</span>
+        </div>
     </div>
+    
     <div class="instructions">
         <h2>How to Play</h2>
         <ul>
-            <li>Left-click to reveal a cell</li>
-            <li>Right-click to flag a suspected mine</li>
-            <li>Double-click a revealed number to reveal surrounding cells (if enough flags are placed)</li>
+            <li><strong>Left-click</strong> or <strong>Enter</strong> to reveal a cell</li>
+            <li><strong>Right-click</strong> or <strong>Space</strong> to flag a suspected mine</li>
+            <li><strong>Double-click</strong> a revealed number to reveal surrounding cells</li>
+            <li><strong>Arrow keys</strong> to navigate (keyboard mode)</li>
+            <li><strong>U</strong> to undo last move</li>
+            <li><strong>R</strong> to reset game</li>
         </ul>
     </div>
+    
+    <!-- Particle effects container -->
+    <div id="particles-container"></div>
+    
     <script src="js/game.js"></script>
 </body>
 </html>
